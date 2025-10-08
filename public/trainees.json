@@ -1,0 +1,12 @@
+[
+  {"id":1,"name":"Noa Cohen","email":"noa.cohen@example.com","profileImage":"/image.png","trainingDuration":2},
+  {"id":2,"name":"Eli Levi","email":"eli.levi@example.com","profileImage":"/image.png","trainingDuration":5},
+  {"id":3,"name":"Maya Shapiro","email":"maya.shapiro@example.com","profileImage":"/image.png","trainingDuration":3},
+  {"id":4,"name":"Avi Katz","email":"avi.katz@example.com","profileImage":"/image.png","trainingDuration":1},
+  {"id":5,"name":"Dana Azulay","email":"dana.azulay@example.com","profileImage":"/image.png","trainingDuration":4},
+  {"id":6,"name":"Itai Ben-David","email":"itai.bendavid@example.com","profileImage":"/image.png","trainingDuration":2},
+  {"id":7,"name":"Shira Bar","email":"shira.bar@example.com","profileImage":"/image.png","trainingDuration":3},
+  {"id":8,"name":"Noam Peretz","email":"noam.peretz@example.com","profileImage":"/image.png","trainingDuration":6},
+  {"id":9,"name":"Lior Shahar","email":"lior.shahar@example.com","profileImage":"/image.png","trainingDuration":4},
+  {"id":10,"name":"Tamar Kaplan","email":"tamar.kaplan@example.com","profileImage":"/image.png","trainingDuration":5}
+]
