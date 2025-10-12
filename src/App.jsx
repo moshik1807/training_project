@@ -1,12 +1,14 @@
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/loginPage";
+import TrainersPage from "./pages/trainersPage";
 
-function App() {
-
+export default function App() {
   return (
-    <>
-      <h1>hello</h1>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/trainers" element={<TrainersPage />} />
+      </Routes>
+    </Router>
+  );
 }
-
-export default App
