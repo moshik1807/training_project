@@ -1,25 +1,26 @@
 import { useState } from "react";
 import { Button } from "@mui/material";
 import Form from "../components/form"; 
+import "../styles/loginPageStyle.css"
 
 export default function LoginPage() {
-  const [mood, setMood] = useState("")
+  const [mode, setMode] = useState("")
 
 
-  if (!mood) {
+  if (!mode) {
     return (
-      <>
-        <Button onClick={() => setMood("login")}>
+      <div className="login-container">
+        <Button onClick={() => setMode("login")}>
           Login
         </Button>
-        <Button onClick={() => setMood("signup")}>
+        <Button onClick={() => setMode("signup")}>
           Sign Up
         </Button>
-      </>
+      </div>
     );
   }
 
-  return <Form mood={mood}/>;
+  return <Form mode={mode}/>;
 }
 
 

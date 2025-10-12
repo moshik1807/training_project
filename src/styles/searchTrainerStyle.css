@@ -1,0 +1,33 @@
+.search-trainer {
+  display: flex;
+  gap: 10px; 
+  align-items: center;
+  margin: 20px 0;
+}
+
+.search-trainer input {
+  padding: 8px 12px;
+  border-radius: 20px; 
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+  flex: 1; 
+}
+
+.search-trainer input:focus {
+  border-color: #90ee90; 
+}
+
+.search-trainer button {
+  padding: 8px 16px;
+  border-radius: 20px; 
+  border: none;
+  background-color: #90ee90; 
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.search-trainer button:hover {
+  background-color: #76c776; 
+}
