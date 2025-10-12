@@ -1,23 +1,36 @@
 import { Button } from "@mui/material";
 import { useState } from "react";
 import { login, signup } from "../api/x";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Form(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (props.mood === "signup") {
-      signup({ name, email });
-    } else {
-      login({ email });
+    try {
+      let user;
+      if (props.mood === "signup") {
+        user = await signup({name, email});
+      } else {
+        user = await login({name,email});
+      }
+    if(user.id){
+      navigate("/trainers");
+    }else{
+      alert("Incorrect name or email.");
+    }
+    } catch (error) {
+      console.error(error);
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      {props.mood === "signup" && (
         <input
           type="text"
           name="name"
@@ -25,7 +38,6 @@ export default function Form(props) {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-      )}
       <input
         type="email"
         name="email"

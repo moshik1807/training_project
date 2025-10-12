@@ -11,11 +11,11 @@ export default function TrainersPage() {
   }, []);
 
   return (
-    <Box sx={{ p: 4 }}>
-      <Typography variant="h4" sx={{ mb: 3 }}>
+    <Box className="trainers-page">
+      <Typography variant="h4">
         All Trainers
       </Typography>
-      <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+      <Box className="trainers-list">
         {trainers.map((trainer, i) => (
           <TrainerCard key={i} trainer={trainer} />
         ))}

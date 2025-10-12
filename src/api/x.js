@@ -1,5 +1,5 @@
 export async function login(data) {
-  const response = await fetch("http://localhost:3000/trainees/create", {
+  const response = await fetch("http://localhost:3000/trainees/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -8,7 +8,7 @@ export async function login(data) {
 }
 
 export async function signup(data) {
-  const response = await fetch("http://localhost:3000/trainees/create", {
+  const response = await fetch("http://localhost:3000/trainees/signup", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -27,3 +27,16 @@ export async function getAllTrainers() {
     return [];
   }
 }
+
+export async function getTrainerById(id) {
+  try {
+    const res = await fetch(`http://localhost:3000/trainers/readById/${id}`);
+    if (!res.ok) throw new Error("Failed to fetch trainer");
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    console.error("Error fetching trainer:", err);
+    return null;
+  }
+}
+
