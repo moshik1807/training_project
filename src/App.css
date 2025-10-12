@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 } */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('../public/sportImg.jpg');
+  background-size: cover;       /* מתיחה על כל המסך */
+  background-position: center;  /* מרכז התמונה */
+  background-repeat: no-repeat; /* לא לחזור על התמונה */
+  min-height: 100vh;            /* גובה מינימום של המסך */
+}

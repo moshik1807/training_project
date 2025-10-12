@@ -1,5 +1,6 @@
 import { Card, CardContent, Typography, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import "../styles/trainerCardStyle.css"
 export default function TrainerCard({ trainer }) {
   const navigate = useNavigate()
 
@@ -8,13 +9,13 @@ export default function TrainerCard({ trainer }) {
     console.log(trainer.id)
   }
   return (
-    <Card onClick={handleClick}>
+    <Card className="trainer-card" onClick={handleClick}>
       <Box
         component="img"
         src={trainer.profileImage}
         alt={trainer.name}
       />
-      <CardContent>
+      <CardContent className="trainer-card-content">
         <Typography variant="h6">
           {trainer.name}
         </Typography>

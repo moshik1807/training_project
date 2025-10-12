@@ -1,0 +1,27 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 15px;
+}
+
+.form-container input {
+  width: 250px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #36e62d;
+  border-radius: 5px;
+}
+
+.form-container .MuiButton-root {
+  background-color: #90ee90 !important; /* ירוק בהיר */
+  width: 120px;
+  height: 45px;
+  font-weight: bold;
+}
+
+.form-container .MuiButton-root:hover {
+  background-color: #76c776 !important;
+}
