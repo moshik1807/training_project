@@ -1,36 +1,21 @@
 import { Card, CardContent, Typography, Box } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
 export default function TrainerCard({ trainer }) {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate(`/trainer/${trainer.id}`);
+    console.log(trainer.id)
+  }
   return (
-    <Card
-      sx={{
-        width: 250,
-        m: 2,
-        borderRadius: 3,
-        boxShadow: 3,
-        textAlign: "center",
-        p: 2,
-      }}
-    >
-      {/* תמונת פרופיל */}
+    <Card onClick={handleClick}>
       <Box
         component="img"
         src={trainer.profileImage}
         alt={trainer.name}
-        sx={{
-          width: 100,
-          height: 100,
-          borderRadius: "50%",
-          objectFit: "cover",
-          boxShadow: 2,
-          mx: "auto",
-          mt: 1,
-        }}
       />
-
-      {/* שם ותחום */}
       <CardContent>
-        <Typography variant="h6" sx={{ fontWeight: "bold", mt: 1 }}>
+        <Typography variant="h6">
           {trainer.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
