@@ -1,4 +1,4 @@
-import { getTrainerById } from "../api/x";
+import { getTrainerById } from "../api/apiFunctions";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/trainerPageStyle.css"
@@ -6,8 +6,6 @@ import "../styles/trainerPageStyle.css"
 export default function TrainerPage() {
   const { id } = useParams();
   const [trainer, setTrainer] = useState(null);
-  const [date, setDate] = useState("");
-  const [showDate, setShowDate] = useState(false);
   useEffect(() => {
     if (id) {
       getTrainerById(id)
@@ -27,16 +25,6 @@ export default function TrainerPage() {
       <p>trainingType: {trainer.trainingType}</p>
       <p>education: {trainer.education}</p>
       <p>bio: {trainer.bio}</p>
-
-      <button onClick={() => setShowDate(true)}>קבע אימון</button>
-
-      {showDate && (
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-      )}
     </div>
   );
 }

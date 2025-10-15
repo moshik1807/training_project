@@ -25,7 +25,7 @@ export default function SearchTrainer({ onSearch }) {
         value={trainingType}
         onChange={(e) => setTrainingType(e.target.value)}
       />
-      <button onClick={handleSearch}>search</button>
+      <button onClick={handleSearch}>🔍</button>
     </div>
   );
 }

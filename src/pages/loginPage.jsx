@@ -10,10 +10,14 @@ export default function LoginPage() {
   if (!mode) {
     return (
       <div className="login-container">
-        <Button onClick={() => setMode("login")}>
+        <Button 
+        sx={{backgroundColor:"white"}} 
+        onClick={() => setMode("login")} >
           Login
         </Button>
-        <Button onClick={() => setMode("signup")}>
+        <Button 
+        sx={{backgroundColor:"white"}} 
+        onClick={() => setMode("signup")}>
           Sign Up
         </Button>
       </div>

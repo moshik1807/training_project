@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 import SearchTrainer from "./searchTrainer";
 import "../styles/navbarStyle.css"
 
@@ -7,13 +8,13 @@ export default function Navbar() {
 
   return (
     <nav>
-      <button onClick={() => navigate("/trainers")}>
+      <Button onClick={() => navigate("/trainers")}>
         מאמנים
-      </button>
+      </Button>
 
-      <button onClick={() => navigate("/trainings")}>
+      <Button onClick={() => navigate("/trainings")}>
         אימונים
-      </button>
+      </Button>
     </nav>
   );
 }

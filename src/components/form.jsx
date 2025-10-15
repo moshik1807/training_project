@@ -1,8 +1,7 @@
-import { Button } from "@mui/material";
+import { Button, TextField, Box } from "@mui/material";
 import { useState } from "react";
-import { login, signup } from "../api/x";
+import { login, signup } from "../api/apiFunctions";
 import { useNavigate } from "react-router-dom";
-import "../styles/formStyle.css";
 
 export default function Form(props) {
   const [name, setName] = useState("");
@@ -26,22 +25,31 @@ export default function Form(props) {
   };
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="name"
-        placeholder="Name"
+    <Box component="form" onSubmit={handleSubmit}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 2,
+          width: "300px",
+          margin: "50px auto",
+          marginBlock:"300px",
+          padding: "20px",
+          borderRadius: "16px",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+          backgroundColor: "#fff7f7ff",
+      }}>
+      <TextField 
+        label="Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
-      />
-      <input
+        required/>
+      <TextField 
+        label="Email"
         type="email"
-        name="email"
-        placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-      />
+        required/>
       <Button type="submit">Submit</Button>
-    </form>
+    </Box>
   );
 }

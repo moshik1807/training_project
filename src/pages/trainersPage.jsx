@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllTrainers } from "../api/x";
+import { getAllTrainers } from "../api/apiFunctions";
 import Navbar from "../components/navbar";
 import SearchTrainer from "../components/searchTrainer";
 import TrainerCard from "../components/trainerCard";
@@ -9,7 +9,8 @@ export default function TrainersPage() {
   const [trainers, setTrainers] = useState([]);
 
   useEffect(() => {
-    getAllTrainers().then(setTrainers);
+    getAllTrainers()
+    .then(setTrainers);
   }, []);
 
   const handleSearch = ({ city, trainingType }) => {

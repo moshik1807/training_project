@@ -1,7 +1,7 @@
 .trainer-page {
-  background-color: #1a1a1a; /* רקע כהה */
-  color: #fff;               /* צבע טקסט לבן או צהוב */
-  min-height: 100vh;         /* גובה מלא */
+  background-color: #1a1a1a; 
+  color: #fff;               
+  min-height: 100vh;        
   padding: 40px;
   display: flex;
   flex-direction: column;
