@@ -1,7 +1,7 @@
 import { Button, TextField, Box } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login,signup } from "../features/user/userThunk";
 
 export default function Form(props) {
@@ -9,24 +9,31 @@ export default function Form(props) {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { status } = useSelector((state) => state.user);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       let user;
       if (props.mode === "signup") {
-        user = await dispatch(signup({ name, email }));
-        if (signup.fulfilled.match(user)) navigate("/trainers");
-        else alert("Incorrect name or email.");
+        user =  dispatch(signup({ name, email }));
+        
+        if (status === 'succeeded') {
+          navigate("/trainers");
+        }else{
+          alert("11")
+        }
+
       } else {
-        user = await dispatch(login({ name, email }));
-        if (login.fulfilled.match(user)) navigate("/trainers");
-        else alert("Incorrect name or email.");
+        user =  dispatch(login({ name, email }));
       }
     } catch (error) {
       console.error(error);
     }
   };
+
+
 
   return (
     <Box component="form" onSubmit={handleSubmit}
