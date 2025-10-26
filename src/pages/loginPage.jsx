@@ -3,7 +3,7 @@ import { Button, Box } from "@mui/material";
 import Form from "../components/form";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-
+import { BUTTON } from "../components/button";
 import { useSelector} from "react-redux";
 
 export default function LoginPage() {
@@ -33,25 +33,11 @@ export default function LoginPage() {
           gap: 2,
         }}
       >
-        <Button
-          sx={{
-            backgroundColor: "white",
-            "&:hover": { backgroundColor: "#7ccd7c" },
-          }}
-          onClick={() => setMode("login")}
-        >
-          Login
-        </Button>
+        
+        <BUTTON onClick={() => setMode("login")}>Login</BUTTON>
 
-        <Button
-          sx={{
-            backgroundColor: "white",
-            "&:hover": { backgroundColor: "#7ccd7c" },
-          }}
-          onClick={() => setMode("signup")}
-        >
-          Sign Up
-        </Button>
+        <BUTTON onClick={() => setMode("signup")}>Sign Up</BUTTON>
+
       </Box>
     );
   }

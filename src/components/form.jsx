@@ -1,7 +1,7 @@
 import { Button, TextField, Box, Alert } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login, signup } from "../features/user/userThunk";
 
 export default function Form(props) {
@@ -10,29 +10,23 @@ export default function Form(props) {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const status = useSelector((state) => state.user.status);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(""); 
-
     try {
       if (props.mode === "signup") {
         await dispatch(signup({ name, email })).unwrap();
       } else {
         await dispatch(login({ name, email })).unwrap();
       }
+      navigate("/trainers");
     } catch (error) {
       console.error(error);
       setError("Incorrect name or email.");
     }
   };
 
-  useEffect(() => {
-    if (status === "succeeded") {
-      navigate("/trainers");
-    }
-  }, [status, navigate]);
 
   return (
     <Box

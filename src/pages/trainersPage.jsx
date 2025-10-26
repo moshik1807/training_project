@@ -3,15 +3,13 @@ import { getAllTrainers } from "../api/apiFunctions";
 import Navbar from "../components/navbar";
 import SearchTrainer from "../components/searchTrainer";
 import TrainerCard from "../components/trainerCard";
-import "../styles/trainersPageStyle.css";
+import { Box } from "@mui/material";
 
 export default function TrainersPage() {
   const [trainers, setTrainers] = useState([]);
 
   useEffect(() => {
-    getAllTrainers()
-    .then((data) => 
-      setTrainers(data));
+    getAllTrainers().then((data) => setTrainers(data));
   }, []);
 
   const handleSearch = ({ city, trainingType }) => {
@@ -22,17 +20,37 @@ export default function TrainersPage() {
   };
 
   return (
-    <div>
-      <div className="header-row">
+    <Box>
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+        flexWrap="wrap"
+        gap={2}
+        p={2} 
+      >
         <Navbar />
         <SearchTrainer onSearch={handleSearch} />
-      </div>
+      </Box>
 
-      <div className="trainers-list">
+      <Box
+        display="flex"
+        flexWrap="wrap"
+        justifyContent="center"
+        gap={2}
+        p={2} 
+      >
         {trainers.map((trainer, i) => (
-          <TrainerCard key={i} trainer={trainer} />
+          <Box
+            key={i}
+            flex="1 1 calc(33.33% - 20px)"
+            maxWidth="300px"
+            boxSizing="border-box"
+          >
+            <TrainerCard trainer={trainer} />
+          </Box>
         ))}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
