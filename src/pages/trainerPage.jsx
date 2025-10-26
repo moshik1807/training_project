@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/trainerPageStyle.css"
 
+
 export default function TrainerPage() {
   const { id } = useParams();
   const [trainer, setTrainer] = useState(null);

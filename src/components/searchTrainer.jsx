@@ -7,7 +7,9 @@ export default function SearchTrainer({ onSearch }) {
 
   const handleSearch = () => {
     if (onSearch) {
+      if(city && trainingType){
       onSearch({ city, trainingType });
+      }
     }
   };
 

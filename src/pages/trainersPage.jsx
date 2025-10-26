@@ -10,7 +10,8 @@ export default function TrainersPage() {
 
   useEffect(() => {
     getAllTrainers()
-    .then(setTrainers);
+    .then((data) => 
+      setTrainers(data));
   }, []);
 
   const handleSearch = ({ city, trainingType }) => {

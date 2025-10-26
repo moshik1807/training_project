@@ -1,30 +1,60 @@
 import { useState } from "react";
-import { Button } from "@mui/material";
-import Form from "../components/form"; 
-import "../styles/loginPageStyle.css"
+import { Button, Box } from "@mui/material";
+import Form from "../components/form";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
+import { useSelector} from "react-redux";
 
 export default function LoginPage() {
-  const [mode, setMode] = useState("")
+  const [mode, setMode] = useState("");
+  const navigate = useNavigate()
+
+  const user = useSelector((state) => state.user);
+
+
+  useEffect(() => {
+    if (user.user) {
+      navigate("/trainers");
+    }
+  }, [user,navigate]);
+
 
 
   if (!mode) {
     return (
-      <div className="login-container">
-        <Button 
-        sx={{backgroundColor:"white"}} 
-        onClick={() => setMode("login")} >
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          flexDirection: "column",
+          gap: 2,
+        }}
+      >
+        <Button
+          sx={{
+            backgroundColor: "white",
+            "&:hover": { backgroundColor: "#7ccd7c" },
+          }}
+          onClick={() => setMode("login")}
+        >
           Login
         </Button>
-        <Button 
-        sx={{backgroundColor:"white"}} 
-        onClick={() => setMode("signup")}>
+
+        <Button
+          sx={{
+            backgroundColor: "white",
+            "&:hover": { backgroundColor: "#7ccd7c" },
+          }}
+          onClick={() => setMode("signup")}
+        >
           Sign Up
         </Button>
-      </div>
+      </Box>
     );
   }
 
-  return <Form mode={mode}/>;
+  return <Form mode={mode} />;
 }
-
-

@@ -1,24 +1,28 @@
 import { Button, TextField, Box } from "@mui/material";
 import { useState } from "react";
-import { login, signup } from "../api/apiFunctions";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login,signup } from "../features/user/userThunk";
 
 export default function Form(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       let user;
       if (props.mode === "signup") {
-        user = await signup({ name, email });
+        user = await dispatch(signup({ name, email }));
+        if (signup.fulfilled.match(user)) navigate("/trainers");
+        else alert("Incorrect name or email.");
       } else {
-        user = await login({ name, email });
+        user = await dispatch(login({ name, email }));
+        if (login.fulfilled.match(user)) navigate("/trainers");
+        else alert("Incorrect name or email.");
       }
-      if (user.id) navigate("/trainers");
-      else alert("Incorrect name or email.");
     } catch (error) {
       console.error(error);
     }
