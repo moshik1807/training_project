@@ -10,11 +10,11 @@ export default function LoginPage() {
   const [mode, setMode] = useState("");
   const navigate = useNavigate()
 
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user.user);
 
 
   useEffect(() => {
-    if (user.user) {
+    if (user) {
       navigate("/trainers");
     }
   }, [user,navigate]);

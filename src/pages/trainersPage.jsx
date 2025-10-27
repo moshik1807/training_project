@@ -1,23 +1,39 @@
-import { useEffect, useState } from "react";
-import { getAllTrainers } from "../api/apiFunctions";
+import { useEffect } from "react";
 import Navbar from "../components/navbar";
 import SearchTrainer from "../components/searchTrainer";
 import TrainerCard from "../components/trainerCard";
 import { Box } from "@mui/material";
+import {getAllTrainers} from '../features/trainers/trainersThunk'
+import { useSelector,useDispatch } from "react-redux";
 
 export default function TrainersPage() {
-  const [trainers, setTrainers] = useState([]);
+  const Dispatch = useDispatch()
+  const trainers = useSelector((state)=> state.trainers.trainers)
+
+
+
+  // להוסיף סטייט של חיפוש עם כפתור לניקוי וברגע שלוחץ על חיפוש אז הפונקציה של חיפוש תכתוב לשם את הפרמטרים הנכונים ונעשה בנב בר כפתור לניקוי 
+  // const trainersSerch = useSelector((state)=> state.trainersSerch.trainersSerch)
 
   useEffect(() => {
-    getAllTrainers().then((data) => setTrainers(data));
-  }, []);
+    if (!trainers || trainers.length === 0) {
+      Dispatch(getAllTrainers());
+    }
+  }, [Dispatch, trainers]);
 
-  const handleSearch = ({ city, trainingType }) => {
-    const filtered = trainers.filter(
-      (t) => t.city === city && t.trainingType === trainingType
-    );
-    setTrainers(filtered);
-  };
+
+  // const handleSearch = ({ city, trainingType }) => {
+  //   const filtered = trainers.filter(
+  //     (t) => t.city === city && t.trainingType === trainingType
+  //   );
+  //   setTrainers(filtered);
+  // };
+
+
+  //הוסיף פה סטייט שיקבל בהתאם או את מאמנים או את מאמנים ממויינים אם יש ובקמפוננטה נשתמש בזה
+  // if(trainersSerch){
+  //   SetX(trainersSerch)
+  // }else{SetX(trainers)}
 
   return (
     <Box>
@@ -30,7 +46,7 @@ export default function TrainersPage() {
         p={2} 
       >
         <Navbar />
-        <SearchTrainer onSearch={handleSearch} />
+        {/* <SearchTrainer onSearch={handleSearch} /> */}
       </Box>
 
       <Box

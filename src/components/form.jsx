@@ -11,6 +11,7 @@ export default function Form(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(""); 
@@ -21,6 +22,7 @@ export default function Form(props) {
         await dispatch(login({ name, email })).unwrap();
       }
       navigate("/trainers");
+      console.log()
     } catch (error) {
       console.error(error);
       setError("Incorrect name or email.");

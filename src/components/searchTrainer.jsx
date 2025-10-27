@@ -4,6 +4,7 @@ import "../styles/searchTrainerStyle.css"
 export default function SearchTrainer({ onSearch }) {
   const [city, setCity] = useState("");
   const [trainingType, setTrainingType] = useState("");
+  
 
   const handleSearch = () => {
     if (onSearch) {

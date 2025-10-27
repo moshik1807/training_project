@@ -8,7 +8,7 @@ export default function Navbar() {
   const dispatch = useDispatch();
 
 
-  const handleLogout = () => {
+  const handleExit = () => {
     dispatch(logout());
     navigate("/"); 
   };
@@ -20,7 +20,7 @@ export default function Navbar() {
 
       <BUTTON onClick={()=>navigate("/trainings")}>trainings</BUTTON>
 
-      <BUTTON onClick={handleLogout}>exit</BUTTON>
+      <BUTTON onClick={handleExit}>exit</BUTTON>
 
     </Box>
   );
