@@ -21,6 +21,8 @@ export const login = createAsyncThunk(
   }
 );
 
+
+
 export const signup = createAsyncThunk(
   'user/signup',
   async(data, thunkAPI)=>{
@@ -30,6 +32,11 @@ export const signup = createAsyncThunk(
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       })
+
+      if(!res){
+        throw new Error('signup failed');
+      }
+
       return res.json()
     }catch(err){
       return thunkAPI.rejectWithValue(err.message)

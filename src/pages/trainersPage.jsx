@@ -3,38 +3,45 @@ import Navbar from "../components/navbar";
 import SearchTrainer from "../components/searchTrainer";
 import TrainerCard from "../components/trainerCard";
 import { Box } from "@mui/material";
-import {getAllTrainers} from '../features/trainers/trainersThunk'
 import { useSelector,useDispatch } from "react-redux";
+import { getAllTrainers } from "../features/trainers/trainersThunk";
 
 export default function TrainersPage() {
-  const Dispatch = useDispatch()
+  const dispatch = useDispatch()
   const trainers = useSelector((state)=> state.trainers.trainers)
+  const searchTrainers = useSelector((state)=> state.searchTrainers.searchTrainers)
+  const searchTrainersError = useSelector((state)=> state.searchTrainers.error);
+  
 
 
+  useEffect(()=>{
+    dispatch(getAllTrainers())
+  },[dispatch])
 
-  // להוסיף סטייט של חיפוש עם כפתור לניקוי וברגע שלוחץ על חיפוש אז הפונקציה של חיפוש תכתוב לשם את הפרמטרים הנכונים ונעשה בנב בר כפתור לניקוי 
-  // const trainersSerch = useSelector((state)=> state.trainersSerch.trainersSerch)
-
-  useEffect(() => {
-    if (!trainers || trainers.length === 0) {
-      Dispatch(getAllTrainers());
-    }
-  }, [Dispatch, trainers]);
-
-
-  // const handleSearch = ({ city, trainingType }) => {
-  //   const filtered = trainers.filter(
-  //     (t) => t.city === city && t.trainingType === trainingType
-  //   );
-  //   setTrainers(filtered);
-  // };
-
-
-  //הוסיף פה סטייט שיקבל בהתאם או את מאמנים או את מאמנים ממויינים אם יש ובקמפוננטה נשתמש בזה
-  // if(trainersSerch){
-  //   SetX(trainersSerch)
-  // }else{SetX(trainers)}
-
+  if(searchTrainersError){
+    return(
+      <>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+          flexWrap="wrap"
+          gap={2}
+          p={2} 
+        >
+          <Navbar />
+          <SearchTrainer/>
+          <Box
+            flex="1 1 calc(33.33% - 20px)"
+            maxWidth="300px"
+            boxSizing="border-box"
+          >
+            <h1 style={{color:"white"}}>not pound 404</h1>
+          </Box>      
+        </Box>
+      </>
+    )
+  }
   return (
     <Box>
       <Box
@@ -46,7 +53,7 @@ export default function TrainersPage() {
         p={2} 
       >
         <Navbar />
-        {/* <SearchTrainer onSearch={handleSearch} /> */}
+        <SearchTrainer/>
       </Box>
 
       <Box
@@ -56,7 +63,7 @@ export default function TrainersPage() {
         gap={2}
         p={2} 
       >
-        {trainers.map((trainer, i) => (
+        {(searchTrainers.length > 0 ? searchTrainers : trainers).map((trainer, i) => (
           <Box
             key={i}
             flex="1 1 calc(33.33% - 20px)"
