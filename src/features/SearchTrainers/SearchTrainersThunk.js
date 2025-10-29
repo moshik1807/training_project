@@ -11,9 +11,9 @@ export const getTrainersBySearch = createAsyncThunk(
             });
             const result = await res.json();
             if(!res.ok){
-                return thunkAPI.rejectWithValue(result.message || "Search failed");
+                return thunkAPI.rejectWithValue(result.message);
             }
-            return await res.json();
+            return result
         }catch(error){
             return thunkAPI.rejectWithValue(error.message) 
         }

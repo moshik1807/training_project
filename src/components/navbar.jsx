@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Button, Box } from "@mui/material";
+import {  Box } from "@mui/material";
 import { useDispatch } from "react-redux";
 import {BUTTON} from "./button"
 import { logout } from "../features/user/userSlice";
@@ -22,8 +22,6 @@ export default function Navbar() {
       <BUTTON onClick={()=>navigate("/trainings")}>trainings</BUTTON>
 
       <BUTTON onClick={handleExit}>exit</BUTTON>
-
-      <BUTTON onClick={()=>{dispatch(cleanSearch())}}>clean earch</BUTTON>
     </Box>
   );
 }

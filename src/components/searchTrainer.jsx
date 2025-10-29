@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getTrainersBySearch } from "../features/SearchTrainers/SearchTrainersThunk";
 import "../styles/searchTrainerStyle.css"
+import { cleanSearch } from "../features/SearchTrainers/SearchTrainersSlice";
+import { BUTTON } from "./button";
 
 export default function SearchTrainer() {
   const [city, setCity] = useState("");
@@ -31,6 +33,8 @@ export default function SearchTrainer() {
         onChange={(e) => setTrainingType(e.target.value)}
       />
       <button onClick={handleSearch}>🔍</button>
+
+      <BUTTON onClick={()=>{dispatch(cleanSearch())}}>clean earch</BUTTON>
     </div>
   );
 
