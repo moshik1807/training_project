@@ -6,6 +6,7 @@ import { Box } from "@mui/material";
 import { useSelector,useDispatch } from "react-redux";
 import { getAllTrainers } from "../features/trainers/trainersThunk";
 
+
 export default function TrainersPage() {
   const dispatch = useDispatch()
   const trainers = useSelector((state)=> state.trainers.trainers)

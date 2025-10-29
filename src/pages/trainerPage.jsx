@@ -1,29 +1,36 @@
-import { getTrainerById } from "../api/apiFunctions";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
+import { DateTime } from "../components/dateTime"; 
+import { useSelector } from "react-redux";
 
 export default function TrainerPage() {
   const { id } = useParams();
   const [trainer, setTrainer] = useState(null);
+  const trainers = useSelector((state)=> state.trainers.trainers)
 
-  useEffect(() => {
-    if (id) {
-      getTrainerById(id).then(setTrainer);
+  useEffect(()=>{
+    if(trainers && id){
+      const trainer = trainers.filter(e=>
+        e.id == id
+      )
+      setTrainer(trainer[0])
+      console.log(trainer)
+
     }
-  }, [id]);
+  },[trainers,id])
+
 
   if (!trainer) {
     return <Typography>Loading...</Typography>;
   }
-
   return (
     <Box
       sx={{
         backgroundColor: "#1a1a1a",
         color: "#fff",
         minHeight: "100vh",
-        p: 5, // padding 40px
+        p: 5, 
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -53,6 +60,7 @@ export default function TrainerPage() {
       <Typography sx={{ my: 0.5 }}>trainingType: {trainer.trainingType}</Typography>
       <Typography sx={{ my: 0.5 }}>education: {trainer.education}</Typography>
       <Typography sx={{ my: 0.5 }}>bio: {trainer.bio}</Typography>
+      <DateTime trainerId={id}/>
     </Box>
   );
 }
