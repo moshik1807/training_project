@@ -10,7 +10,7 @@ export function Training({training}){
 
 
     const handleDelete = ()=>{
-        dispatch(deleteTraining(training.id))
+        dispatch(deleteTraining({trainingId:training.id,userId:user.id}))
     }
 
     return(

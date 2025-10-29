@@ -16,9 +16,9 @@ export const getTrainingsById = createAsyncThunk(
 
 export const deleteTraining = createAsyncThunk(
     'trainings/delete',
-    async (id,thunkAPI)=>{
+    async ({trainingId,userId},thunkAPI)=>{
         try{
-            const res = await fetch(`http://localhost:3000/trainings/delete/${id}`,{
+            const res = await fetch(`http://localhost:3000/trainings/delete/${trainingId}/${userId}`,{
                 method: "DELETE"
             })
             if(!res.ok) throw new Error("Failed to fetch delete");
