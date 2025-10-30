@@ -11,10 +11,10 @@ export default function TrainerPage() {
 
   useEffect(()=>{
     if(trainers && id){
-      const trainer = trainers.filter(e=>
+      const trainer = trainers.find(e=>
         e.id == id
       )
-      setTrainer(trainer[0])
+      setTrainer(trainer)
       console.log(trainer)
 
     }
@@ -22,7 +22,7 @@ export default function TrainerPage() {
 
 
   if (!trainer) {
-    return <Typography>Loading...</Typography>;
+    return <Typography>Trainer not found</Typography>;
   }
   return (
     <Box

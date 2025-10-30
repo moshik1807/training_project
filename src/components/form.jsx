@@ -22,7 +22,6 @@ export default function Form(props) {
         await dispatch(login({ name, email })).unwrap();
       }
       navigate("/trainers");
-      console.log()
     } catch (error) {
       console.error(error);
       setError("Incorrect name or email.");

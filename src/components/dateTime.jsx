@@ -2,10 +2,12 @@ import { useState } from "react"
 import { BUTTON } from "./button"
 import { useSelector,useDispatch } from "react-redux"
 import { createTraining } from "../features/trainings/trainingsThunk"
+import { Snackbar } from "@mui/material"
 
 export function DateTime({trainerId}){
     const [date,setDate] = useState("")
     const [time,setTime] = useState("")
+    const [open, setOpen] = useState(false)
     const dispatch = useDispatch()
     const userId = useSelector((state)=> state.user.user.id)
 
@@ -17,7 +19,7 @@ export function DateTime({trainerId}){
             time:time
         }
         dispatch(createTraining(training))
-        alert("add training")
+        setOpen(true)
     }
 
     return(
@@ -37,6 +39,12 @@ export function DateTime({trainerId}){
                     onChange={(e)=> setTime(e.target.value)} />
             </label>
             <BUTTON onClick={handleSubmit}>send</BUTTON>
+            <Snackbar 
+                open={open}
+                autoHideDuration={3000}
+                onClose={() => setOpen(false)}
+                message="Training added successfully!"
+            />
         </>
     )
 }
