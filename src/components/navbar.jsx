@@ -3,7 +3,6 @@ import {  Box } from "@mui/material";
 import { useDispatch } from "react-redux";
 import {BUTTON} from "./button"
 import { logout } from "../features/user/userSlice";
-import { cleanSearch } from "../features/SearchTrainers/SearchTrainersSlice";
 export default function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -11,7 +10,6 @@ export default function Navbar() {
 
   const handleExit = () => {
     dispatch(logout())
-    dispatch(cleanSearch())
     navigate("/")
   };
 

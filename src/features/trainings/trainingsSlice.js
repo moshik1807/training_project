@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { logout } from "../user/userSlice";
 import { getTrainingsById,createTraining,deleteTraining } from "./trainingsThunk";
 
 const initialState = {
@@ -57,6 +57,12 @@ const trainingsSlice = createSlice({
             .addCase(deleteTraining.rejected,(state,action)=>{
                 state.status = 'failed'
                 state.error = action.error.message
+            })
+
+            .addCase(logout,(state)=>{
+                state.trainings = []
+                state.status = 'idle'
+                state.error = null
             })
     }
 })

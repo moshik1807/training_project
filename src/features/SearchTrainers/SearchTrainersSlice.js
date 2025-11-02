@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getTrainersBySearch } from "./SearchTrainersThunk";
+import { logout } from "../user/userSlice";
 
 const initialState = {
     searchTrainers:[],
@@ -29,6 +30,12 @@ const SearchTrainersSlice = createSlice({
             .addCase(getTrainersBySearch.rejected,(state,action)=>{
                 state.status = 'failed'
                 state.error = action.error.message
+            })
+
+            .addCase(logout,(state)=>{
+                state.searchTrainers = []
+                state.status = 'idal'
+                state.error = null
             })
     }
 })

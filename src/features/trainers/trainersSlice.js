@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getAllTrainers } from "./trainersThunk";
+import { logout } from "../user/userSlice";
 
 const initialState ={
     trainers:[],
@@ -29,6 +30,12 @@ const trainersSlice = createSlice({
             .addCase(getAllTrainers.rejected,(state,action)=>{
                 state.status = 'failed'
                 state.error = action.error.message
+            })
+
+            .addCase(logout,(state)=>{
+                state.trainers = null
+                state.status = 'idle'
+                state.error = null
             })
     }
 })

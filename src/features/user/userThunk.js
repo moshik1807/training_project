@@ -33,7 +33,7 @@ export const signup = createAsyncThunk(
         body: JSON.stringify(data),
       })
 
-      if(!res){
+      if(!res.ok){
         throw new Error('signup failed');
       }
 
