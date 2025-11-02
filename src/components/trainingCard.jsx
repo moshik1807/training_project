@@ -1,13 +1,13 @@
 import { useSelector,useDispatch } from "react-redux"
 import { BUTTON } from "./button"
 import { deleteTraining } from "../features/trainings/trainingsThunk"
+import { userSelector } from "../features/user/userSlice"
 
 export function Training({training}){
     const trainers = useSelector(state => state.trainers.trainers)
     const trainer = trainers.find((e)=> e.id == training.coachId)
     const dispatch = useDispatch()
-    const user = useSelector(state => state.user.user)
-
+    const user = useSelector(userSelector)
 
     const handleDelete = ()=>{
         dispatch(deleteTraining({trainingId:training.id,userId:user.id}))

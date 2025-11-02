@@ -35,6 +35,7 @@ const trainersSlice = createSlice({
 
 export const {clean} = trainersSlice.actions
 export default trainersSlice.reducer
+export const trainersSelector = (state)=> state.trainers.trainers
 
 
 

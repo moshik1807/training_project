@@ -35,3 +35,5 @@ const SearchTrainersSlice = createSlice({
 
 export const {cleanSearch} = SearchTrainersSlice.actions
 export default SearchTrainersSlice.reducer
+export const searchTrainersSelector = (state)=> state.searchTrainers.searchTrainers
+export const searchTrainersErrorSelector = (state)=> state.searchTrainers.error

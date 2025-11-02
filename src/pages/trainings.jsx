@@ -4,13 +4,15 @@ import { useSelector,useDispatch } from "react-redux"
 import { getTrainingsById } from "../features/trainings/trainingsThunk"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import { userSelector } from "../features/user/userSlice"
+import { trainingsSelector } from "../features/trainings/trainingsSlice"
 
 export default function TrainingsPage() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const user = useSelector(state=> state.user.user)
-    const trainings = useSelector(state => state.trainings.trainings)
-
+    const user = useSelector(userSelector)
+    const trainings = useSelector(trainingsSelector)
+    
     useEffect(()=>{
         if(!user){
             return

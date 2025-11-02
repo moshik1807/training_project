@@ -64,3 +64,4 @@ const trainingsSlice = createSlice({
 
 export const {cleanTrainings} = trainingsSlice.actions
 export default trainingsSlice.reducer
+export const trainingsSelector = (state) => state.trainings.trainings

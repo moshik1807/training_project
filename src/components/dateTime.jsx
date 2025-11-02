@@ -3,13 +3,14 @@ import { BUTTON } from "./button"
 import { useSelector,useDispatch } from "react-redux"
 import { createTraining } from "../features/trainings/trainingsThunk"
 import { Snackbar } from "@mui/material"
+import { userIdSelector } from "../features/user/userSlice"
 
 export function DateTime({trainerId}){
     const [date,setDate] = useState("")
     const [time,setTime] = useState("")
     const [open, setOpen] = useState(false)
     const dispatch = useDispatch()
-    const userId = useSelector((state)=> state.user.user.id)
+    const userId = useSelector(userIdSelector)
 
     const handleSubmit = ()=>{
         const training ={

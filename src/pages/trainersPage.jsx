@@ -5,14 +5,14 @@ import TrainerCard from "../components/trainerCard";
 import { Box } from "@mui/material";
 import { useSelector,useDispatch } from "react-redux";
 import { getAllTrainers } from "../features/trainers/trainersThunk";
-
+import { trainersSelector } from "../features/trainers/trainersSlice";
+import { searchTrainersSelector,searchTrainersErrorSelector } from "../features/SearchTrainers/SearchTrainersSlice";
 
 export default function TrainersPage() {
   const dispatch = useDispatch()
-  const trainers = useSelector((state)=> state.trainers.trainers)
-  const searchTrainers = useSelector((state)=> state.searchTrainers.searchTrainers)
-  const searchTrainersError = useSelector((state)=> state.searchTrainers.error);
-  
+  const trainers = useSelector(trainersSelector)
+  const searchTrainers = useSelector(searchTrainersSelector)
+  const searchTrainersError = useSelector(searchTrainersErrorSelector);
 
 
   useEffect(()=>{

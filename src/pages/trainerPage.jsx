@@ -3,12 +3,13 @@ import { useParams } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 import { DateTime } from "../components/dateTime"; 
 import { useSelector } from "react-redux";
+import { trainersSelector } from "../features/trainers/trainersSlice";
 
 export default function TrainerPage() {
   const { id } = useParams();
   const [trainer, setTrainer] = useState(null);
-  const trainers = useSelector((state)=> state.trainers.trainers)
-
+  const trainers = useSelector(trainersSelector)
+  
   useEffect(()=>{
     if(trainers && id){
       const trainer = trainers.find(e=>

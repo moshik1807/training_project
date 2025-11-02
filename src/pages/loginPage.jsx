@@ -5,13 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { BUTTON } from "../components/button";
 import { useSelector} from "react-redux";
+import { userSelector } from "../features/user/userSlice";
 
 export default function LoginPage() {
   const [mode, setMode] = useState("");
   const navigate = useNavigate()
-
-  const user = useSelector((state) => state.user.user);
-
+  const user = useSelector(userSelector);
 
   useEffect(() => {
     if (user) {
