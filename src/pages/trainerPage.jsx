@@ -19,8 +19,6 @@ export default function TrainerPage() {
         e.id == id
       )
       setTrainer(trainer)
-      console.log(trainer)
-
     }
   },[trainers,id])
 
@@ -40,8 +38,8 @@ export default function TrainerPage() {
         alignItems: "center",
         fontFamily: "Arial, sans-serif",
       }}
-    >      <BUTTON onClick={()=>navigate("/trainers")}>trainers</BUTTON>
-    
+    >
+    <BUTTON onClick={()=>navigate("/trainers")}>trainers</BUTTON>
       <Box
         component="img"
         src={trainer.profileImage}

@@ -49,4 +49,4 @@ const userSlice = createSlice({
 export const { logout } = userSlice.actions
 export default userSlice.reducer
 export const userSelector = (state)=> state.user.user
-export const userIdSelector = (state)=> state.user.user.id
+export const userIdSelector = (state)=> state.user.user?.id

@@ -3,12 +3,10 @@ import { Training } from "../components/trainingCard"
 import { useSelector,useDispatch } from "react-redux"
 import { getTrainingsById } from "../features/trainings/trainingsThunk"
 import { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
 import { userSelector } from "../features/user/userSlice"
 import { trainingsSelector } from "../features/trainings/trainingsSlice"
 
 export default function TrainingsPage() {
-    const navigate = useNavigate()
     const dispatch = useDispatch()
     const user = useSelector(userSelector)
     const trainings = useSelector(trainingsSelector)
@@ -18,7 +16,7 @@ export default function TrainingsPage() {
             return
         }
         dispatch(getTrainingsById(user.id))
-    },[user,dispatch,navigate])
+    },[user,dispatch])
     
 
     return(

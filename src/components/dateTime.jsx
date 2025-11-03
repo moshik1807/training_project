@@ -21,6 +21,8 @@ export function DateTime({trainerId}){
         }
         dispatch(createTraining(training))
         setOpen(true)
+        setDate("")
+        setTime("")
     }
 
     return(

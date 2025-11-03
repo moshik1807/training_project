@@ -25,7 +25,7 @@ const trainersSlice = createSlice({
             })
             .addCase(getAllTrainers.fulfilled,(state,action)=>{
                 state.status = 'succeeded'
-                state.trainers = action.payload
+                state.trainers = action.payload                
             })
             .addCase(getAllTrainers.rejected,(state,action)=>{
                 state.status = 'failed'

@@ -14,7 +14,7 @@ const SearchTrainersSlice = createSlice({
     reducers:{
         cleanSearch:(state)=>{
             state.searchTrainers = []
-            state.status = 'idal'
+            state.status = 'idle'
             state.error = null
         }
     },
@@ -34,7 +34,7 @@ const SearchTrainersSlice = createSlice({
 
             .addCase(logout,(state)=>{
                 state.searchTrainers = []
-                state.status = 'idal'
+                state.status = 'idle'
                 state.error = null
             })
     }

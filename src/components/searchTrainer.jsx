@@ -34,7 +34,7 @@ export default function SearchTrainer() {
       />
       <button onClick={handleSearch}>🔍</button>
 
-      <BUTTON onClick={()=>{dispatch(cleanSearch())}}>clear earch</BUTTON>
+      <BUTTON onClick={()=>{dispatch(cleanSearch())}}>clear search</BUTTON>
     </div>
   );
 

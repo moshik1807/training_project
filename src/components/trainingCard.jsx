@@ -5,7 +5,7 @@ import { userSelector } from "../features/user/userSlice"
 
 export function Training({training}){
     const trainers = useSelector(state => state.trainers.trainers)
-    const trainer = trainers.find((e)=> e.id == training.coachId)
+    const trainer = trainers?.find((e)=> e.id == training.coachId)
     const dispatch = useDispatch()
     const user = useSelector(userSelector)
 

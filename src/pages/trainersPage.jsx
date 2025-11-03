@@ -37,7 +37,7 @@ export default function TrainersPage() {
             maxWidth="300px"
             boxSizing="border-box"
           >
-            <h1 style={{color:"white"}}>not pound 404</h1>
+            <h1 style={{color:"white"}}>No trainers found</h1>
           </Box>      
         </Box>
       </>
@@ -64,7 +64,7 @@ export default function TrainersPage() {
         gap={2}
         p={2} 
       >
-        {(searchTrainers.length > 0 ? searchTrainers : trainers).map((trainer, i) => (
+        {(searchTrainers.length > 0 ? searchTrainers : trainers || []).map((trainer, i) => (
           <Box
             key={i}
             flex="1 1 calc(33.33% - 20px)"

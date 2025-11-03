@@ -6,7 +6,6 @@ export default function TrainerCard({ trainer }) {
 
   const handleClick = () => {
     navigate(`/trainer/${trainer.id}`);
-    console.log(trainer.id);
   };
 
   return (
