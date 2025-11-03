@@ -11,10 +11,9 @@ export default function Form(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); 
+    setError("");
     try {
       if (props.mode === "signup") {
         await dispatch(signup({ name, email })).unwrap();
@@ -27,7 +26,6 @@ export default function Form(props) {
       setError("Incorrect name or email.");
     }
   };
-
 
   return (
     <Box

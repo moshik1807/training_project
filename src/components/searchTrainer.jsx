@@ -1,22 +1,20 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getTrainersBySearch } from "../features/SearchTrainers/SearchTrainersThunk";
-import "../styles/searchTrainerStyle.css"
+import "../styles/searchTrainerStyle.css";
 import { cleanSearch } from "../features/SearchTrainers/SearchTrainersSlice";
 import { BUTTON } from "./button";
 
 export default function SearchTrainer() {
   const [city, setCity] = useState("");
   const [trainingType, setTrainingType] = useState("");
-  const dispatch = useDispatch()
-  
+  const dispatch = useDispatch();
 
   const handleSearch = () => {
-      if(city && trainingType){
-        dispatch(getTrainersBySearch({ city, trainingType }));
-      }
+    if (city && trainingType) {
+      dispatch(getTrainersBySearch({ city, trainingType }));
     }
-  
+  };
 
   return (
     <div className="search-trainer">
@@ -34,8 +32,13 @@ export default function SearchTrainer() {
       />
       <button onClick={handleSearch}>🔍</button>
 
-      <BUTTON onClick={()=>{dispatch(cleanSearch())}}>clear search</BUTTON>
+      <BUTTON
+        onClick={() => {
+          dispatch(cleanSearch());
+        }}
+      >
+        clear search
+      </BUTTON>
     </div>
   );
-
 }

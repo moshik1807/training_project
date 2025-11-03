@@ -47,7 +47,10 @@ export default function TrainerCard({ trainer }) {
           backgroundColor: "transparent",
         }}
       >
-        <Typography variant="h6" sx={{ fontWeight: "bold", color: "#00ff15", m: "5px 0" }}>
+        <Typography
+          variant="h6"
+          sx={{ fontWeight: "bold", color: "#00ff15", m: "5px 0" }}
+        >
           {trainer.name}
         </Typography>
         <Typography variant="body2" sx={{ color: "#161313", fontSize: 14 }}>
