@@ -39,7 +39,7 @@ export default function Form(props) {
         margin: "50px auto",
         marginBlock: "300px",
         padding: "20px",
-        backgroundColor: "#fff7f7ff",
+        backgroundColor: "rgba(179, 229, 252, 0.8)",
         borderRadius:"10px"
       }}
     >

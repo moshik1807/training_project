@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Box, Typography,Avatar } from "@mui/material";
+import { Box, Typography, Avatar, Paper, Stack, Divider } from "@mui/material";
 import { DateTime } from "../components/dateTime";
 import { useSelector } from "react-redux";
 import { trainersSelector } from "../features/trainers/trainersSlice";
@@ -22,7 +22,7 @@ export default function TrainerPage() {
   }
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <Box
         sx={{
           backgroundColor: "rgba(179, 229, 252, 0.8)",
@@ -33,26 +33,53 @@ export default function TrainerPage() {
           alignItems: "center",
         }}
       >
-      <Avatar
-        src={trainer.profileImage}
-        alt={trainer.name}
-        sx={{
-          width: 250,
-          height: 250,
-          margin: "10px auto",
-        }}
-      />
-        <Typography variant="h4" sx={{ color: "rgba(37, 37, 216, 0.6)", my: 1 }}>
-          NAME: {trainer.name}
-        </Typography>
-        <Typography sx={{ my: 0.5 }}>CITY: {trainer.city}</Typography>
-        <Typography sx={{ my: 0.5 }}>
-          trainingType: {trainer.trainingType}
-        </Typography>
-        <Typography sx={{ my: 0.5 }}>education: {trainer.education}</Typography>
-        <Typography sx={{ my: 0.5 }}>bio: {trainer.bio}</Typography>
-        <DateTime trainerId={id} />
+        <Paper
+          elevation={6}
+          sx={{
+            p: 4,
+            maxWidth: 700,
+            width: "100%",
+            borderRadius: 3,
+            backgroundColor: "rgba(179, 229, 252, 0.8)",
+          }}
+        >
+          <Stack spacing={3} alignItems="center">
+            <Avatar
+              src={trainer.profileImage}
+              alt={trainer.name}
+              sx={{
+                width: 250,
+                height: 250,
+                margin: "10px auto",
+              }}
+            />
+            <Typography
+              variant="h4"
+              sx={{ color: "rgba(37, 37, 216, 0.6)", my: 1 }}
+            >
+              NAME: {trainer.name}
+            </Typography>
+            <Divider sx={{ width: "100%" }} />
+            <Box sx={{ width: "100%", textAlign: "left" }}>
+              <Typography sx={{ my: 0.5 }}>
+                <strong>City:</strong> {trainer.city}
+              </Typography>
+              <Typography sx={{ my: 0.5 }}>
+                <strong>trainingType:</strong> {trainer.trainingType}
+              </Typography>
+              <Typography sx={{ my: 0.5 }}>
+                <strong>education:</strong> {trainer.education}
+              </Typography>
+              <Typography sx={{ my: 0.5 }}>
+                <strong>bio:</strong> {trainer.bio}
+              </Typography>
+            </Box>
+            <Divider sx={{ width: "100%" }} />
+
+            <DateTime trainerId={id} />
+          </Stack>
+        </Paper>
       </Box>
-      </>
+    </>
   );
 }

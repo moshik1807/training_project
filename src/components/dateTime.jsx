@@ -46,20 +46,16 @@ export function DateTime({ trainerId }) {
         Schedule a Training
       </Typography>
       <TextField
-        label="Date"
         type="date"
         value={date}
         onChange={(e) => setDate(e.target.value)}
-        InputLabelProps={{ shrink: true }}
         fullWidth
       />
 
       <TextField
-        label="Time"
         type="time"
         value={time}
         onChange={(e) => setTime(e.target.value)}
-        InputLabelProps={{ shrink: true }}
         fullWidth
       />
 

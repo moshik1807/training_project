@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { BUTTON } from "./button";
 import { deleteTraining } from "../features/trainings/trainingsThunk";
 import { userSelector } from "../features/user/userSlice";
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Box, Card, CardContent, Typography,Avatar } from "@mui/material";
 
 export function Training({ training }) {
   const trainers = useSelector((state) => state.trainers.trainers);
@@ -26,17 +26,20 @@ export function Training({ training }) {
     <Card
       sx={{
         m: 1,
-        p: 2,
-        borderRadius: 2,
-        boxShadow: 3,
-        bgcolor: "background.paper",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: 1,
-        width: 250,
+        p: 1,
+        bgcolor: "rgba(179, 229, 252, 0.8)",
+        borderRadius: "10px",
       }}
     >
+         <Avatar
+        src={trainer.profileImage}
+        alt={trainer.name}
+        sx={{
+          width: 100,
+          height: 100,
+          margin: "10px auto",
+        }}
+      />
       <CardContent
         sx={{
           display: "flex",

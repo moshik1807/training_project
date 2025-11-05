@@ -5,7 +5,7 @@ import { getTrainingsById } from "../features/trainings/trainingsThunk";
 import { useEffect } from "react";
 import { userSelector } from "../features/user/userSlice";
 import { trainingsSelector } from "../features/trainings/trainingsSlice";
-import { Typography } from "@mui/material";
+import { Typography, Box, CircularProgress } from "@mui/material";
 export default function TrainingsPage() {
   const dispatch = useDispatch();
   const user = useSelector(userSelector);
@@ -22,7 +22,7 @@ export default function TrainingsPage() {
     return(
       <>
         <Navbar />
-        <Typography sx={{color:"white"}}>No training sessions have been scheduled yet.</Typography>
+        <Typography sx={{color:"white" ,display:'flex',justifyContent:'center'}}>No training sessions have been scheduled yet.</Typography>
       </>
     )
   }
