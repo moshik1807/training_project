@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography,Avatar } from "@mui/material";
 import { DateTime } from "../components/dateTime";
 import { useSelector } from "react-redux";
 import { trainersSelector } from "../features/trainers/trainersSlice";
-import { BUTTON } from "../components/button";
-import { useNavigate } from "react-router-dom";
-
+import Navbar from "../components/navbar";
 export default function TrainerPage() {
-  const navigate = useNavigate();
   const { id } = useParams();
   const [trainer, setTrainer] = useState(null);
   const trainers = useSelector(trainersSelector);
@@ -25,37 +22,30 @@ export default function TrainerPage() {
   }
   return (
     <>
-      <BUTTON onClick={() => navigate("/trainers")}>trainers</BUTTON>
-
+    <Navbar/>
       <Box
         sx={{
-          backgroundColor: "#1a1a1a",
-          color: "#fff",
+          backgroundColor: "rgba(179, 229, 252, 0.8)",
           minHeight: "100vh",
           p: 5,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          fontFamily: "Arial, sans-serif",
         }}
       >
-        <Box
-          component="img"
-          src={trainer.profileImage}
-          alt={trainer.name}
-          sx={{
-            width: 200,
-            height: 200,
-            objectFit: "cover",
-            borderRadius: "50%",
-            mb: 2,
-            border: "3px solid #79e65b",
-          }}
-        />
-        <Typography variant="h4" sx={{ color: "#00ff15", my: 1 }}>
-          name: {trainer.name}
+      <Avatar
+        src={trainer.profileImage}
+        alt={trainer.name}
+        sx={{
+          width: 250,
+          height: 250,
+          margin: "10px auto",
+        }}
+      />
+        <Typography variant="h4" sx={{ color: "rgba(37, 37, 216, 0.6)", my: 1 }}>
+          NAME: {trainer.name}
         </Typography>
-        <Typography sx={{ my: 0.5 }}>city: {trainer.city}</Typography>
+        <Typography sx={{ my: 0.5 }}>CITY: {trainer.city}</Typography>
         <Typography sx={{ my: 0.5 }}>
           trainingType: {trainer.trainingType}
         </Typography>
@@ -63,6 +53,6 @@ export default function TrainerPage() {
         <Typography sx={{ my: 0.5 }}>bio: {trainer.bio}</Typography>
         <DateTime trainerId={id} />
       </Box>
-    </>
+      </>
   );
 }

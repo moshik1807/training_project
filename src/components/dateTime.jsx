@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BUTTON } from "./button";
 import { useSelector, useDispatch } from "react-redux";
 import { createTraining } from "../features/trainings/trainingsThunk";
-import { Snackbar } from "@mui/material";
+import { Snackbar, Box, TextField, Typography } from "@mui/material";
 import { userIdSelector } from "../features/user/userSlice";
 import { CleanError } from "../features/trainings/trainingsSlice";
 
@@ -28,24 +28,43 @@ export function DateTime({ trainerId }) {
   };
 
   return (
-    <>
-      <label>
-        date:
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-      </label>
-      <label>
-        time:
-        <input
-          type="time"
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
-        />
-      </label>
-      <BUTTON onClick={handleSubmit}>send</BUTTON>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      gap={2}
+      sx={{
+        bgcolor: "rgba(179, 229, 252, 0.3)",
+        p: 3,
+        borderRadius: 3,
+        width: "300px",
+        mx: "auto",
+        boxShadow: 2,
+      }}
+    >
+      <Typography variant="h6" sx={{ color: "rgba(2, 119, 189, 0.9)" }}>
+        Schedule a Training
+      </Typography>
+      <TextField
+        label="Date"
+        type="date"
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
+        InputLabelProps={{ shrink: true }}
+        fullWidth
+      />
+
+      <TextField
+        label="Time"
+        type="time"
+        value={time}
+        onChange={(e) => setTime(e.target.value)}
+        InputLabelProps={{ shrink: true }}
+        fullWidth
+      />
+
+      <BUTTON onClick={handleSubmit}>Send</BUTTON>
+
       <Snackbar
         open={open}
         autoHideDuration={3000}
@@ -55,6 +74,6 @@ export function DateTime({ trainerId }) {
         }}
         message={error ? error : "Training added successfully!"}
       />
-    </>
+    </Box>
   );
 }

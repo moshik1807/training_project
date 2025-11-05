@@ -19,7 +19,7 @@ export default function TrainersPage() {
 
   useEffect(() => {
       dispatch(getAllTrainers());
-  }, [trainers, dispatch]);
+  }, [dispatch]);
 
   if (searchTrainersError) {
     return (
@@ -56,7 +56,6 @@ export default function TrainersPage() {
         p={2}
       >
         <Navbar />
-        <SearchTrainer />
       </Box>
 
       <Box display="flex" flexWrap="wrap" justifyContent="center" gap={2} p={2}>

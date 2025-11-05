@@ -30,9 +30,9 @@ export default function LoginPage() {
           gap: 2,
         }}
       >
-        <BUTTON variant="contained" onClick={() => setMode("login")}>Login</BUTTON>
+        <BUTTON onClick={() => setMode("login")}>Login</BUTTON>
 
-        <BUTTON variant="contained" onClick={() => setMode("signup")}>Sign Up</BUTTON>
+        <BUTTON onClick={() => setMode("signup")}>Sign Up</BUTTON>
       </Box>
     );
   }

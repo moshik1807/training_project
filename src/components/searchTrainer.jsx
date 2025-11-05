@@ -21,16 +21,17 @@ export default function SearchTrainer() {
     <Box
       display="flex"
       alignItems="center"
+      marginLeft={'400px'}
+      borderRadius={'10px'}
       gap={1}
-      sx={{ bgcolor: "#f5f5f5ff", p: 1 }}
     >
-      <TextField
+      <TextField sx={{bgcolor:"rgba(179, 229, 252, 0.8)"}}
         label="city"
         value={city}
         onChange={(e) => setCity(e.target.value)}
         required
       />
-      <TextField
+      <TextField sx={{bgcolor:"rgba(179, 229, 252, 0.8)"}}
         label="trainingType"
         value={trainingType}
         onChange={(e) => setTrainingType(e.target.value)}

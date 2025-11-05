@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography, Box } from "@mui/material";
+import { Card, CardContent, Typography, Box, Avatar } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 export default function TrainerCard({ trainer }) {
@@ -14,27 +14,28 @@ export default function TrainerCard({ trainer }) {
       sx={{
         m: 1,
         p: 1,
-        borderRadius: "10px"
+        bgcolor: "rgba(179, 229, 252, 0.8)",
+        borderRadius: "10px",
       }}
     >
-      <Box
-        component="img"
+      <Avatar
         src={trainer.profileImage}
         alt={trainer.name}
         sx={{
-          width: "80%",
-          display: "block",
-          m: "10px auto",
+          width: 100,
+          height: 100,
+          margin: "10px auto",
         }}
       />
-
       <CardContent
         sx={{
           textAlign: "center",
         }}
       >
         <Typography variant="h6">{trainer.name}</Typography>
-        <Typography variant="body2">trainingType: {trainer.trainingType}</Typography>
+        <Typography variant="body2">
+          trainingType: {trainer.trainingType}
+        </Typography>
       </CardContent>
     </Card>
   );
