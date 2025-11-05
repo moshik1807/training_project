@@ -24,42 +24,45 @@ export default function TrainerPage() {
     return <Typography>Trainer not found</Typography>;
   }
   return (
-    <Box
-      sx={{
-        backgroundColor: "#1a1a1a",
-        color: "#fff",
-        minHeight: "100vh",
-        p: 5,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        fontFamily: "Arial, sans-serif",
-      }}
-    >
+    <>
       <BUTTON onClick={() => navigate("/trainers")}>trainers</BUTTON>
+
       <Box
-        component="img"
-        src={trainer.profileImage}
-        alt={trainer.name}
         sx={{
-          width: 200,
-          height: 200,
-          objectFit: "cover",
-          borderRadius: "50%",
-          mb: 2,
-          border: "3px solid #79e65b",
+          backgroundColor: "#1a1a1a",
+          color: "#fff",
+          minHeight: "100vh",
+          p: 5,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          fontFamily: "Arial, sans-serif",
         }}
-      />
-      <Typography variant="h4" sx={{ color: "#00ff15", my: 1 }}>
-        name: {trainer.name}
-      </Typography>
-      <Typography sx={{ my: 0.5 }}>city: {trainer.city}</Typography>
-      <Typography sx={{ my: 0.5 }}>
-        trainingType: {trainer.trainingType}
-      </Typography>
-      <Typography sx={{ my: 0.5 }}>education: {trainer.education}</Typography>
-      <Typography sx={{ my: 0.5 }}>bio: {trainer.bio}</Typography>
-      <DateTime trainerId={id} />
-    </Box>
+      >
+        <Box
+          component="img"
+          src={trainer.profileImage}
+          alt={trainer.name}
+          sx={{
+            width: 200,
+            height: 200,
+            objectFit: "cover",
+            borderRadius: "50%",
+            mb: 2,
+            border: "3px solid #79e65b",
+          }}
+        />
+        <Typography variant="h4" sx={{ color: "#00ff15", my: 1 }}>
+          name: {trainer.name}
+        </Typography>
+        <Typography sx={{ my: 0.5 }}>city: {trainer.city}</Typography>
+        <Typography sx={{ my: 0.5 }}>
+          trainingType: {trainer.trainingType}
+        </Typography>
+        <Typography sx={{ my: 0.5 }}>education: {trainer.education}</Typography>
+        <Typography sx={{ my: 0.5 }}>bio: {trainer.bio}</Typography>
+        <DateTime trainerId={id} />
+      </Box>
+    </>
   );
 }

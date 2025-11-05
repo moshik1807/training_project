@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { BUTTON } from "./button";
 import { deleteTraining } from "../features/trainings/trainingsThunk";
 import { userSelector } from "../features/user/userSlice";
+import { Box, Card, CardContent, Typography } from "@mui/material";
 
 export function Training({ training }) {
   const trainers = useSelector((state) => state.trainers.trainers);
@@ -22,13 +23,36 @@ export function Training({ training }) {
   }
 
   return (
-    <section style={{ color: "white", width: "200px", height: "200px" }}>
-      <h1>{trainer.name}</h1>
-      <h2>{user.name}</h2>
-      <h3>
-        {training.date} {training.time}
-      </h3>
-      <BUTTON onClick={handleDelete}>🗑️</BUTTON>
-    </section>
+    <Card
+      sx={{
+        m: 1,
+        p: 2,
+        borderRadius: 2,
+        boxShadow: 3,
+        bgcolor: "background.paper",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 1,
+        width: 250,
+      }}
+    >
+      <CardContent
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 1.5,
+          textAlign: "center",
+          p: 2,
+        }}
+      >
+        <Typography variant="h6">trainer: {trainer.name}</Typography>
+        <Typography variant="body2">
+          training time : {training.date} {training.time}
+        </Typography>
+        <BUTTON onClick={handleDelete}>🗑️</BUTTON>
+      </CardContent>
+    </Card>
   );
 }

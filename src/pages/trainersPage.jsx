@@ -18,8 +18,8 @@ export default function TrainersPage() {
   const searchTrainersError = useSelector(searchTrainersErrorSelector);
 
   useEffect(() => {
-    dispatch(getAllTrainers());
-  }, [dispatch]);
+      dispatch(getAllTrainers());
+  }, [trainers, dispatch]);
 
   if (searchTrainersError) {
     return (

@@ -39,8 +39,6 @@ export default function Form(props) {
         margin: "50px auto",
         marginBlock: "300px",
         padding: "20px",
-        borderRadius: "16px",
-        boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
         backgroundColor: "#fff7f7ff",
       }}
     >
