@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { BUTTON } from "./button";
 import { deleteTraining } from "../features/trainings/trainingsThunk";
 import { userSelector } from "../features/user/userSlice";
-import { Box, Card, CardContent, Typography,Avatar } from "@mui/material";
+import { Box, Card, CardContent, Typography, Avatar } from "@mui/material";
 
 export function Training({ training }) {
   const trainers = useSelector((state) => state.trainers.trainers);
@@ -31,7 +31,7 @@ export function Training({ training }) {
         borderRadius: "10px",
       }}
     >
-         <Avatar
+      <Avatar
         src={trainer.profileImage}
         alt={trainer.name}
         sx={{

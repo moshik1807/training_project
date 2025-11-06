@@ -57,7 +57,7 @@ export default function TrainerPage() {
               variant="h4"
               sx={{ color: "rgba(37, 37, 216, 0.6)", my: 1 }}
             >
-              NAME: {trainer.name}
+              Name: {trainer.name}
             </Typography>
             <Divider sx={{ width: "100%" }} />
             <Box sx={{ width: "100%", textAlign: "left" }}>
@@ -65,13 +65,13 @@ export default function TrainerPage() {
                 <strong>City:</strong> {trainer.city}
               </Typography>
               <Typography sx={{ my: 0.5 }}>
-                <strong>trainingType:</strong> {trainer.trainingType}
+                <strong>TrainingType:</strong> {trainer.trainingType}
               </Typography>
               <Typography sx={{ my: 0.5 }}>
-                <strong>education:</strong> {trainer.education}
+                <strong>Education:</strong> {trainer.education}
               </Typography>
               <Typography sx={{ my: 0.5 }}>
-                <strong>bio:</strong> {trainer.bio}
+                <strong>Bio:</strong> {trainer.bio}
               </Typography>
             </Box>
             <Divider sx={{ width: "100%" }} />

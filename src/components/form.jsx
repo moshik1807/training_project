@@ -40,7 +40,7 @@ export default function Form(props) {
         marginBlock: "300px",
         padding: "20px",
         backgroundColor: "rgba(179, 229, 252, 0.8)",
-        borderRadius:"10px"
+        borderRadius: "10px",
       }}
     >
       {error && (
