@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { BUTTON } from "./button";
 import { deleteTraining } from "../features/trainings/trainingsThunk";
 import { userSelector } from "../features/user/userSlice";
-import { Box, Card, CardContent, Typography, Avatar } from "@mui/material";
+import { Card, CardContent, Typography, Avatar } from "@mui/material";
 
 export function Training({ training }) {
   const trainers = useSelector((state) => state.trainers.trainers);
@@ -17,7 +17,9 @@ export function Training({ training }) {
   if (!trainer) {
     return (
       <>
-        <h1>Trainer not found</h1>
+        <Typography variant="h3" sx={{ color: "white" }}>
+          Trainer not found
+        </Typography>
       </>
     );
   }
@@ -29,6 +31,9 @@ export function Training({ training }) {
         p: 1,
         bgcolor: "rgba(179, 229, 252, 0.8)",
         borderRadius: "10px",
+        "&:hover": {
+          transform: "scale(1.05)",
+        },
       }}
     >
       <Avatar
@@ -50,9 +55,16 @@ export function Training({ training }) {
           p: 2,
         }}
       >
-        <Typography variant="h6">trainer: {trainer.name}</Typography>
+        <Typography variant="h6">
+          <strong>trainer: </strong>
+          {trainer.name}
+        </Typography>
         <Typography variant="body2">
-          training time : {training.date} {training.time}
+          <strong>training time :</strong> {training.date} {training.time}
+        </Typography>
+        <Typography variant="body2">
+          <strong>trainingType : </strong>
+          {trainer.trainingType}
         </Typography>
         <BUTTON onClick={handleDelete}>🗑️</BUTTON>
       </CardContent>

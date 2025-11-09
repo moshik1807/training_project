@@ -17,8 +17,10 @@ export default function TrainersPage() {
   const searchTrainersError = useSelector(searchTrainersErrorSelector);
 
   useEffect(() => {
-    dispatch(getAllTrainers());
-  }, [dispatch]);
+    if (!trainers.length) {
+      dispatch(getAllTrainers());
+    }
+  }, [dispatch, trainers]);
 
   if (searchTrainersError) {
     return (
@@ -36,9 +38,9 @@ export default function TrainersPage() {
     <Box>
       <Navbar />
       <Grid container spacing={4} justifyContent="center" sx={{ p: 2 }}>
-        {(searchTrainers.length > 0 ? searchTrainers : trainers || []).map(
+        {(searchTrainers.length > 0 ? searchTrainers : trainers).map(
           (trainer, i) => (
-            <Grid size={3} key={i}>
+            <Grid size={4} key={i}>
               <TrainerCard trainer={trainer} />
             </Grid>
           )

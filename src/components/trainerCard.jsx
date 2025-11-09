@@ -16,6 +16,9 @@ export default function TrainerCard({ trainer }) {
         p: 1,
         bgcolor: "rgba(179, 229, 252, 0.8)",
         borderRadius: "10px",
+        "&:hover": {
+          transform: "scale(1.10)",
+        },
       }}
     >
       <Avatar

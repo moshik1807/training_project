@@ -18,7 +18,7 @@ export default function Navbar() {
   return (
     <AppBar position="static" sx={{ borderRadius: "10px" }}>
       <Toolbar
-        sx={{ bgcolor: "rgba(179, 229, 252, 0.8)", borderRadius: "10px" }}
+        sx={{ bgcolor: "rgba(146, 178, 193, 0.8)", borderRadius: "10px" }}
       >
         <BUTTON onClick={() => navigate("/trainers")}>trainers</BUTTON>
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BUTTON } from "./button";
 import { useSelector, useDispatch } from "react-redux";
 import { createTraining } from "../features/trainings/trainingsThunk";
-import { Snackbar, Box, TextField, Typography } from "@mui/material";
+import { Snackbar, Box, TextField, Typography, Alert } from "@mui/material";
 import { userIdSelector } from "../features/user/userSlice";
 import { CleanError } from "../features/trainings/trainingsSlice";
 
@@ -68,8 +68,11 @@ export function DateTime({ trainerId }) {
           setOpen(false);
           dispatch(CleanError());
         }}
-        message={error ? error : "Training added successfully!"}
-      />
+      >
+        <Alert severity={error ? "error" : "success"}>
+          {error ? error : "Training added successfully!"}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 }

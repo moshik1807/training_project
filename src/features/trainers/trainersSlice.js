@@ -13,7 +13,7 @@ const trainersSlice = createSlice({
   initialState,
   reducers: {
     clean: (state) => {
-      state.trainers = null;
+      state.trainers = [];
       state.status = "idle";
       state.error = null;
     },
@@ -33,7 +33,7 @@ const trainersSlice = createSlice({
       })
 
       .addCase(logout, (state) => {
-        state.trainers = null;
+        state.trainers = [];
         state.status = "idle";
         state.error = null;
       });
