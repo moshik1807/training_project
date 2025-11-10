@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getTrainingsById = createAsyncThunk(
-  "trainings/getAll",
+  "trainings/getById",
   async (id, thunkAPI) => {
     try {
       const res = await fetch(`http://localhost:3000/trainings/readById/${id}`);

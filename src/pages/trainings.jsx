@@ -15,8 +15,9 @@ export default function TrainingsPage() {
     if (!user) {
       return;
     }
-    dispatch(getTrainingsById(user.id));
-  }, [user, dispatch]);
+    if(!trainings.length){
+    dispatch(getTrainingsById(user.id));}
+  }, [user, dispatch,trainings]);
 
   if (!trainings.length) {
     return (
