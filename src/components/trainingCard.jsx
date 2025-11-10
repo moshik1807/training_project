@@ -1,14 +1,18 @@
 import { useSelector, useDispatch } from "react-redux";
-import { BUTTON } from "./button";
-import { deleteTraining } from "../features/trainings/trainingsThunk";
-import { userSelector } from "../features/user/userSlice";
+
 import { Card, CardContent, Typography, Avatar } from "@mui/material";
 
+import { Button } from "./button";
+import { deleteTraining } from "../features/trainings/trainingsThunk";
+import { userSelector } from "../features/user/userSlice";
+
 export function Training({ training }) {
-  const trainers = useSelector((state) => state.trainers.trainers);
-  const trainer = trainers?.find((e) => e.id == training.coachId);
   const dispatch = useDispatch();
+
+  const trainers = useSelector((state) => state.trainers.trainers);
   const user = useSelector(userSelector);
+
+  const trainer = trainers?.find(({ id }) => id === parseInt(training.coachId));
 
   const handleDelete = () => {
     dispatch(deleteTraining({ trainingId: training.id, userId: user.id }));
@@ -66,7 +70,7 @@ export function Training({ training }) {
           <strong>trainingType : </strong>
           {trainer.trainingType}
         </Typography>
-        <BUTTON onClick={handleDelete}>🗑️</BUTTON>
+        <Button onClick={handleDelete}>🗑️</Button>
       </CardContent>
     </Card>
   );

@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getTrainersBySearch } from "../features/SearchTrainers/SearchTrainersThunk";
-import { cleanSearch } from "../features/SearchTrainers/SearchTrainersSlice";
-import { BUTTON } from "./button";
+
 import { Box, TextField } from "@mui/material";
 
+import { Button } from "./button";
+import { getTrainersBySearch } from "../features/SearchTrainers/SearchTrainersThunk";
+import { cleanSearch } from "../features/SearchTrainers/SearchTrainersSlice";
+
 export default function SearchTrainer() {
+  const dispatch = useDispatch();
+
   const [city, setCity] = useState("");
   const [trainingType, setTrainingType] = useState("");
-  const dispatch = useDispatch();
 
   const handleSearch = () => {
     if (city && trainingType) {
@@ -28,7 +31,7 @@ export default function SearchTrainer() {
         sx={{ bgcolor: "rgba(179, 229, 252, 0.8)" }}
         label="city"
         value={city}
-        onChange={(e) => setCity(e.target.value)}
+        onChange={({ target: { value } }) => setCity(value)}
         required
         size="small"
       />
@@ -36,13 +39,13 @@ export default function SearchTrainer() {
         sx={{ bgcolor: "rgba(179, 229, 252, 0.8)" }}
         label="trainingType"
         value={trainingType}
-        onChange={(e) => setTrainingType(e.target.value)}
+        onChange={({ target: { value } }) => setTrainingType(value)}
         required
         size="small"
       />
-      <BUTTON onClick={handleSearch}>🔍</BUTTON>
+      <Button onClick={handleSearch}>🔍</Button>
 
-      <BUTTON
+      <Button
         onClick={() => {
           dispatch(cleanSearch());
           setCity("");
@@ -50,7 +53,7 @@ export default function SearchTrainer() {
         }}
       >
         clear search
-      </BUTTON>
+      </Button>
     </Box>
   );
 }

@@ -1,8 +1,9 @@
-import { Button } from "@mui/material";
-export function BUTTON({ onClick, children }) {
+import { Button as MuiButton }  from "@mui/material";
+
+export function Button({ onClick, children }) {
   return (
     <>
-      <Button
+      <MuiButton
         sx={{
           px: 2,
           py: 1,
@@ -15,7 +16,7 @@ export function BUTTON({ onClick, children }) {
         onClick={onClick}
       >
         {children}
-      </Button>
+      </MuiButton>
     </>
   );
 }

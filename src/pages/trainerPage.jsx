@@ -1,18 +1,23 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Box, Typography, Avatar, Paper, Stack, Divider } from "@mui/material";
-import { DateTime } from "../components/dateTime";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+
+import { Box, Typography, Avatar, Paper, Stack, Divider } from "@mui/material";
+
+import { DateTime } from "../components/dateTime";
 import { trainersSelector } from "../features/trainers/trainersSlice";
 import Navbar from "../components/navbar";
+
 export default function TrainerPage() {
   const { id } = useParams();
+
   const [trainer, setTrainer] = useState(null);
+
   const trainers = useSelector(trainersSelector);
 
   useEffect(() => {
     if (trainers && id) {
-      const trainer = trainers?.find((e) => e.id == id);
+      const trainer = trainers?.find(({ id }) => id === id);
       setTrainer(trainer);
     }
   }, [trainers, id]);

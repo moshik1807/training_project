@@ -1,21 +1,25 @@
-import { Button, TextField, Box, Alert } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+
+import { Button, TextField, Box, Alert } from "@mui/material";
+
+import { signInModes } from "../modes";
 import { login, signup } from "../features/user/userThunk";
 
 export default function Form(props) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     setError("");
     try {
-      if (props.mode === "signup") {
+      if (props.mode === signInModes.signUp) {
         await dispatch(signup({ name, email })).unwrap();
       } else {
         await dispatch(login({ name, email })).unwrap();
@@ -52,14 +56,14 @@ export default function Form(props) {
       <TextField
         label="Name"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={({ target: { value } }) => setName(value)}
         required
       />
       <TextField
         label="Email"
         type="email"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={({ target: { value } }) => setEmail(value)}
         required
       />
       <Button type="submit">Submit</Button>

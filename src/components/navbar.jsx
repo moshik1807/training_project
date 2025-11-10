@@ -1,13 +1,16 @@
-import { useNavigate } from "react-router-dom";
-import { Box, AppBar, Toolbar } from "@mui/material";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { BUTTON } from "./button";
-import { logout } from "../features/user/userSlice";
-import { useLocation } from "react-router-dom";
+
+import { AppBar, Toolbar } from "@mui/material";
+
+import { Button } from "./button";
 import SearchTrainer from "./searchTrainer";
+import { logout } from "../features/user/userSlice";
+
 export default function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const location = useLocation();
 
   const handleExit = () => {
@@ -20,11 +23,11 @@ export default function Navbar() {
       <Toolbar
         sx={{ bgcolor: "rgba(146, 178, 193, 0.8)", borderRadius: "10px" }}
       >
-        <BUTTON onClick={() => navigate("/trainers")}>trainers</BUTTON>
+        <Button onClick={() => navigate("/trainers")}>trainers</Button>
 
-        <BUTTON onClick={() => navigate("/trainings")}>trainings</BUTTON>
+        <Button onClick={() => navigate("/trainings")}>trainings</Button>
 
-        <BUTTON onClick={handleExit}>exit</BUTTON>
+        <Button onClick={handleExit}>exit</Button>
         {location.pathname === "/trainers" && <SearchTrainer />}
       </Toolbar>
     </AppBar>

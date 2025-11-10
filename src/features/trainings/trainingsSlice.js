@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import { logout } from "../user/userSlice";
 import {
   getTrainingsById,
@@ -58,7 +59,7 @@ const trainingsSlice = createSlice({
       .addCase(deleteTraining.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.trainings = state.trainings.filter(
-          (e) => e.id !== parseInt(action.payload)
+          ({id}) => id !== parseInt(action.payload)
         );
       })
       .addCase(deleteTraining.rejected, (state, action) => {
@@ -78,14 +79,14 @@ function enterTraining(trainings, training) {
   let start = 0;
   let end = trainings.length - 1;
   while (start <= end) {
-    let midle = Math.floor((start + end) / 2);
+    let middle = Math.floor((start + end) / 2);
     if (
-      new Date(`${trainings[midle].date}T${trainings[midle].time}`) <
+      new Date(`${trainings[middle].date}T${trainings[middle].time}`) <
       new Date(`${training.date}T${training.time}`)
     ) {
-      start = midle + 1;
+      start = middle + 1;
     } else {
-      end = midle - 1;
+      end = middle - 1;
     }
   }
   trainings.splice(start, 0, training);

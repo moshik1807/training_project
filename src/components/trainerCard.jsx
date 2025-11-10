@@ -1,5 +1,6 @@
-import { Card, CardContent, Typography, Box, Avatar } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+
+import { Card, CardContent, Typography, Avatar } from "@mui/material";
 
 export default function TrainerCard({ trainer }) {
   const navigate = useNavigate();

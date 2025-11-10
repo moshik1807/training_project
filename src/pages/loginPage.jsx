@@ -1,15 +1,19 @@
-import { useState } from "react";
-import { Box } from "@mui/material";
-import Form from "../components/form";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
+
+import { Box } from "@mui/material";
+
+import { signInModes } from "../modes";
+import Form from "../components/form";
 import { userSelector } from "../features/user/userSlice";
-import { BUTTON } from "../components/button";
+import { Button } from "../components/button";
 
 export default function LoginPage() {
-  const [mode, setMode] = useState("");
   const navigate = useNavigate();
+
+  const [mode, setMode] = useState("");
+
   const user = useSelector(userSelector);
 
   useEffect(() => {
@@ -30,9 +34,9 @@ export default function LoginPage() {
           gap: 2,
         }}
       >
-        <BUTTON onClick={() => setMode("login")}>Login</BUTTON>
+        <Button onClick={() => setMode(signInModes.login)}>Login</Button>
 
-        <BUTTON onClick={() => setMode("signup")}>Sign Up</BUTTON>
+        <Button onClick={() => setMode(signInModes.signUp)}>Sign Up</Button>
       </Box>
     );
   }

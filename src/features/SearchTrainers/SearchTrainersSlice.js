@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import { getTrainersBySearch } from "./SearchTrainersThunk";
 import { logout } from "../user/userSlice";
 

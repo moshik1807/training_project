@@ -1,8 +1,10 @@
 import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { Box, Grid, Container, Typography } from "@mui/material";
+
 import Navbar from "../components/navbar";
 import TrainerCard from "../components/trainerCard";
-import { Box, Grid, Container, Typography } from "@mui/material";
-import { useSelector, useDispatch } from "react-redux";
 import { getAllTrainers } from "../features/trainers/trainersThunk";
 import { trainersSelector } from "../features/trainers/trainersSlice";
 import {
@@ -12,6 +14,7 @@ import {
 
 export default function TrainersPage() {
   const dispatch = useDispatch();
+
   const trainers = useSelector(trainersSelector);
   const searchTrainers = useSelector(searchTrainersSelector);
   const searchTrainersError = useSelector(searchTrainersErrorSelector);

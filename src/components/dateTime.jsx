@@ -1,17 +1,21 @@
 import { useState } from "react";
-import { BUTTON } from "./button";
 import { useSelector, useDispatch } from "react-redux";
-import { createTraining } from "../features/trainings/trainingsThunk";
+
 import { Snackbar, Box, TextField, Typography, Alert } from "@mui/material";
+
+import { Button } from "./button";
+import { createTraining } from "../features/trainings/trainingsThunk";
 import { userIdSelector } from "../features/user/userSlice";
 import { CleanError } from "../features/trainings/trainingsSlice";
 
 export function DateTime({ trainerId }) {
+  const dispatch = useDispatch();
+
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [open, setOpen] = useState(false);
+
   const error = useSelector((state) => state.trainings.error);
-  const dispatch = useDispatch();
   const userId = useSelector(userIdSelector);
 
   const handleSubmit = () => {
@@ -48,18 +52,18 @@ export function DateTime({ trainerId }) {
       <TextField
         type="date"
         value={date}
-        onChange={(e) => setDate(e.target.value)}
+        onChange={({ target: { value } }) => setDate(value)}
         fullWidth
       />
 
       <TextField
         type="time"
         value={time}
-        onChange={(e) => setTime(e.target.value)}
+        onChange={({ target: { value } }) => setTime(value)}
         fullWidth
       />
 
-      <BUTTON onClick={handleSubmit}>Send</BUTTON>
+      <Button onClick={handleSubmit}>Send</Button>
 
       <Snackbar
         open={open}
