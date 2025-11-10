@@ -21,9 +21,9 @@ const trainingsSlice = createSlice({
       state.status = "idle";
       state.error = null;
     },
-    CleanError:(state) =>{
-      state.status = "idle"
-      state.error = null
+    CleanError: (state) => {
+      state.status = "idle";
+      state.error = null;
     },
   },
   extraReducers: (builder) => {
@@ -45,7 +45,7 @@ const trainingsSlice = createSlice({
       })
       .addCase(createTraining.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.trainings = action.payload
+        state.trainings = enterTraining(state.trainings, action.payload);
       })
       .addCase(createTraining.rejected, (state, action) => {
         state.status = "failed";
@@ -57,7 +57,9 @@ const trainingsSlice = createSlice({
       })
       .addCase(deleteTraining.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.trainings = action.payload;
+        state.trainings = state.trainings.filter(
+          (e) => e.id !== parseInt(action.payload)
+        );
       })
       .addCase(deleteTraining.rejected, (state, action) => {
         state.status = "failed";
@@ -72,6 +74,24 @@ const trainingsSlice = createSlice({
   },
 });
 
-export const { cleanTrainings,CleanError } = trainingsSlice.actions;
+function enterTraining(trainings, training) {
+  let start = 0;
+  let end = trainings.length - 1;
+  while (start <= end) {
+    let midle = Math.floor((start + end) / 2);
+    if (
+      new Date(`${trainings[midle].date}T${trainings[midle].time}`) <
+      new Date(`${training.date}T${training.time}`)
+    ) {
+      start = midle + 1;
+    } else {
+      end = midle - 1;
+    }
+  }
+  trainings.splice(start, 0, training);
+  return trainings;
+}
+
+export const { cleanTrainings, CleanError } = trainingsSlice.actions;
 export default trainingsSlice.reducer;
 export const trainingsSelector = (state) => state.trainings.trainings;
