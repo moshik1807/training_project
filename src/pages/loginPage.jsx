@@ -34,9 +34,9 @@ export default function LoginPage() {
           gap: 2,
         }}
       >
-        <Button onClick={() => setMode(signInModes.login)}>Login</Button>
+        <Button onClick={() => setMode(signInModes.login)}>{signInModes.login}</Button>
 
-        <Button onClick={() => setMode(signInModes.signUp)}>Sign Up</Button>
+        <Button onClick={() => setMode(signInModes.signUp)}>{signInModes.signUp}</Button>
       </Box>
     );
   }

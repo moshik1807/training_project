@@ -1,4 +1,4 @@
 export const signInModes = {
-  signUp: "signUp",
-  login: "login",
+  signUp: "Sign up",
+  login: "Login",
 };
