@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { Snackbar, Box, TextField, Typography, Alert } from "@mui/material";
 
-import { Button } from "./button";
+import { Button } from "./Button";
 import { createTraining } from "../features/trainings/trainingsThunk";
 import { userIdSelector } from "../features/user/userSlice";
 import { CleanError } from "../features/trainings/trainingsSlice";

@@ -1,9 +1,11 @@
 import "./App.css";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LoginPage from "./pages/loginPage";
-import TrainersPage from "./pages/trainersPage";
-import TrainerPage from "./pages/trainerPage";
-import TrainingsPage from "./pages/trainings";
+
+import LoginPage from "./pages/LoginPage";
+import TrainersPage from "./pages/TrainersPage";
+import TrainerPage from "./pages/TrainerPage";
+import TrainingsPage from "./pages/TrainingsPage";
 
 export default function App() {
   return (

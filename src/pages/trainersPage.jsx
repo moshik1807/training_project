@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { Box, Grid, Container, Typography } from "@mui/material";
 
-import Navbar from "../components/navbar";
-import TrainerCard from "../components/trainerCard";
+import Navbar from "../components/Navbar";
+import TrainerCard from "../components/TrainerCard";
 import { getAllTrainers } from "../features/trainers/trainersThunk";
 import { trainersSelector } from "../features/trainers/trainersSlice";
 import {

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { Box, TextField } from "@mui/material";
 
-import { Button } from "./button";
+import { Button } from "./Button";
 import { getTrainersBySearch } from "../features/SearchTrainers/SearchTrainersThunk";
 import { cleanSearch } from "../features/SearchTrainers/SearchTrainersSlice";
 

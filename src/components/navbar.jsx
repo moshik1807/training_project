@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 
 import { AppBar, Toolbar } from "@mui/material";
 
-import { Button } from "./button";
-import SearchTrainer from "./searchTrainer";
+import { Button } from "./Button";
+import SearchTrainer from "./SearchTrainer";
 import { logout } from "../features/user/userSlice";
 
 export default function Navbar() {

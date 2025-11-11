@@ -4,9 +4,9 @@ import { useParams } from "react-router-dom";
 
 import { Box, Typography, Avatar, Paper, Stack, Divider } from "@mui/material";
 
-import { DateTime } from "../components/dateTime";
+import { DateTime } from "../components/DateTime";
 import { trainersSelector } from "../features/trainers/trainersSlice";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 
 export default function TrainerPage() {
   const { id } = useParams();
@@ -17,11 +17,10 @@ export default function TrainerPage() {
 
   useEffect(() => {
     if (trainers && id) {
-      const trainer = trainers?.find(({ id }) => id === id);
+      const trainer = trainers?.find((trainer) => trainer.id === parseInt(id));
       setTrainer(trainer);
     }
   }, [trainers, id]);
-
   if (!trainer) {
     return <Typography>Trainer not found</Typography>;
   }

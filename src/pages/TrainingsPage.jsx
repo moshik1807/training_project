@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { Typography, Box, Container, Grid } from "@mui/material";
 
-import Navbar from "../components/navbar";
-import { Training } from "../components/trainingCard";
+import Navbar from "../components/Navbar";
+import { TrainingCard } from "../components/TrainingCard";
 import { getTrainingsById } from "../features/trainings/trainingsThunk";
 import { userSelector } from "../features/user/userSlice";
 import { trainingsSelector } from "../features/trainings/trainingsSlice";
@@ -42,7 +42,7 @@ export default function TrainingsPage() {
       <Grid container spacing={4} justifyContent="center" sx={{ p: 2 }}>
         {trainings.map((training, i) => (
           <Grid size={3} key={i}>
-            <Training training={training} />
+            <TrainingCard training={training} />
           </Grid>
         ))}
       </Grid>

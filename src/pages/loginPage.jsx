@@ -5,9 +5,9 @@ import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
 
 import { signInModes } from "../modes";
-import Form from "../components/form";
+import Form from "../components/Form";
 import { userSelector } from "../features/user/userSlice";
-import { Button } from "../components/button";
+import { Button } from "../components/Button";
 
 export default function LoginPage() {
   const navigate = useNavigate();

@@ -2,11 +2,11 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { Card, CardContent, Typography, Avatar } from "@mui/material";
 
-import { Button } from "./button";
+import { Button } from "./Button";
 import { deleteTraining } from "../features/trainings/trainingsThunk";
 import { userSelector } from "../features/user/userSlice";
 
-export function Training({ training }) {
+export function TrainingCard({ training }) {
   const dispatch = useDispatch();
 
   const trainers = useSelector((state) => state.trainers.trainers);
